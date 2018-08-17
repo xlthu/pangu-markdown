@@ -1,0 +1,58 @@
+{
+	"name": "Pangu-Markdown",
+	"displayName": "Pangu-Markdown",
+	"description": "Add space between Chinese and English in markdown",
+	"version": "0.0.1",
+	"publisher": "xlthu",
+	"engines": {
+		"vscode": "^1.11.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xlthu/pangu-markdown"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pangu.add_space_all",
+				"title": "Pangu Format"
+			}
+		],
+		"menus": {
+			"editor/context": [{
+				"when": "resourceLangId == markdown",
+				"command": "pangu.add_space_all",
+				"group": "1_modification"
+			}]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "Pangu Configuration",
+			"properties": {
+				"pangu.auto_space_on_save": {
+					"type": "boolean",
+					"default": false,
+					"description": "Auto add whitespace for the whole docment on save"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0",
+		"mocha": "^2.3.3",
+		"@types/node": "^6.0.40",
+		"@types/mocha": "^2.2.32"
+	}
+}
