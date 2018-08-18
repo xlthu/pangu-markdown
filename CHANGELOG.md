@@ -1,5 +1,9 @@
 # Change Log
 
+v0.0.3 (2018-08-18):
+
+- Fix bug with `(`
+
 v0.0.2 (2018-08-18):
 
 - Explain functions in detail

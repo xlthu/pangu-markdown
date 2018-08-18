@@ -2,7 +2,7 @@
 	"name": "Pangu-Markdown",
 	"displayName": "Pangu-Markdown",
 	"description": "Pangu format for markdown",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "xlthu",
 	"engines": {
 		"vscode": "^1.11.0"
