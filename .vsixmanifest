@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Language="en-US" Id="Pangu-Markdown" Version="0.0.1" Publisher="xl"/>
+    <Identity Language="en-US" Id="Pangu-Markdown" Version="0.0.2" Publisher="xlthu"/>
     <DisplayName>Pangu-Markdown</DisplayName>
-    <Description xml:space="preserve">Add whitespace between Chinese and English in markdown</Description>
+    <Description xml:space="preserve">Pangu format for markdown</Description>
     <Tags></Tags>
     <Categories>Other</Categories>
     <GalleryFlags>Public</GalleryFlags>

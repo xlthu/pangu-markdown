@@ -1,8 +1,8 @@
 {
 	"name": "Pangu-Markdown",
 	"displayName": "Pangu-Markdown",
-	"description": "Add space between Chinese and English in markdown",
-	"version": "0.0.1",
+	"description": "Pangu format for markdown",
+	"version": "0.0.2",
 	"publisher": "xlthu",
 	"engines": {
 		"vscode": "^1.11.0"
@@ -39,7 +39,7 @@
 				"pangu.auto_space_on_save": {
 					"type": "boolean",
 					"default": false,
-					"description": "Auto add whitespace for the whole docment on save"
+					"description": "Auto add whitespace for the whole document on save"
 				}
 			}
 		}

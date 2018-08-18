@@ -1,28 +1,19 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require("vscode");
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+
 function activate(context) {
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
     console.log('Congratulations, your extension "Pangu-Markdown" is now active!');
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
+	
     let add_space_all = vscode.commands.registerCommand('pangu.add_space_all', () => {
-        // The code you place here will be executed every time your command is executed
         new DocumentFormatter().updateDocument();
     });
     context.subscriptions.push(add_space_all);
 	context.subscriptions.push(new Watcher());
 }
 exports.activate = activate;
-// this method is called when your extension is deactivated
-function deactivate() {
-}
+
+function deactivate() {}
 exports.deactivate = deactivate;
 
 class DocumentFormatter {
@@ -36,19 +27,17 @@ class DocumentFormatter {
                 let content = doc.getText(this.current_document_range(doc));
                 // 全局替换
                 content = this.condenseContent(content);
-                content = this.replaceFullNums(content);
-                content = this.replaceFullChars(content);
+                //content = this.replaceFullNums(content);
+                //content = this.replaceFullChars(content);
                 // 每行操作
                 content = content.split("\n").map((line) => {
                     line = this.replacePunctuations(line);
-                    line = line.replace(/([\u4e00-\u9fa5\u3040-\u30FF][*]*)([a-zA-Z0-9@&=\[\$\%\^\-\+(\/\\])/g, '$1 $2');
-                    line = line.replace(/([a-zA-Z0-9!&;=\]\,\.\:\?\$\%\^\-\+\)\/\\])([*]*[\u4e00-\u9fa5\u3040-\u30FF])/g, "$1 $2");
-                    line = line.replace(/[『\[]([^』\]]+)[』\]][『\[]([^』\]]+)[』\]]/g, "[$1]($2)");
-                    line = line.replace(/[『\[]([^』\]]+)[』\]][（(]([^』)]+)[）)]/g, "[$1]($2)");
+                    line = line.replace(/([\u4e00-\u9fa5\u3040-\u30FF][*]*)([a-zA-Z0-9\[`])/g, '$1 $2');
+                    line = line.replace(/([a-zA-Z0-9\]`!;\,\.\:\?\)])([*]*[\u4e00-\u9fa5\u3040-\u30FF])/g, "$1 $2");
+                    line = line.replace(/\[([^\]]+)\][（(]([^)]+)[）)]/g, "[$1]($2)");
                     return line;
                 }).join("\n");
                 editorBuilder.replace(this.current_document_range(doc), content);
-                // editorBuilder.insert(doc.positionAt(0), 'hello World');
             });
         }
         else {
@@ -74,10 +63,6 @@ class DocumentFormatter {
         content = content.replace(/([\u4e00-\u9fa5\u3040-\u30FF])\\\s*/g, '$1、');
         content = content.replace(/\(([\u4e00-\u9fa5\u3040-\u30FF])/g, '（$1');
 		content = content.replace(/([\u4e00-\u9fa5\u3040-\u30FF])\)/g, '$1）');
-        content = content.replace(/\[([\u4e00-\u9fa5\u3040-\u30FF])/g, '『$1');
-        content = content.replace(/([\u4e00-\u9fa5\u3040-\u30FF。！])\]/g, '$1』');
-        content = content.replace(/<([\u4e00-\u9fa5\u3040-\u30FF])/g, '《$1');
-        content = content.replace(/([\u4e00-\u9fa5\u3040-\u30FF。！])>/g, '$1》');
         content = content.replace(/。\{3,}/g, '......');
         content = content.replace(/([！？])$1{3,}/g, '$1$1$1');
         content = content.replace(/([。，；：、“”『』〖〗《》])\1{1,}/g, '$1');
