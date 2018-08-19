@@ -3,7 +3,7 @@
 ## Function
 
 1. Add whitespace between Chinese and English
-2. Add whitespace between Chinese and `[ ] \` `
+2. Add whitespace between Chinese and ``[ ] ` ``
 3. `, \ . : ; ? !` after Chinese characters to `，、。：；？！`
 4. `()` around Chinese characters to `（）`
 	- `[] <>` remains untouched
