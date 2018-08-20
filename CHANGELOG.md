@@ -1,6 +1,6 @@
 # Change Log
 
-v0.0.4 (2018-08-18):
+v0.0.4 (2018-08-20):
 
 - Change `auto_space_on_save` to `auto_format_on_save` for consistency
 
