@@ -5,10 +5,10 @@ const vscode = require("vscode");
 function activate(context) {
     console.log('Congratulations, your extension "Pangu-Markdown" is now active!');
 	
-    let add_space_all = vscode.commands.registerCommand('pangu.add_space_all', () => {
+    let format = vscode.commands.registerCommand('pangu.format', () => {
         new DocumentFormatter().updateDocument();
     });
-    context.subscriptions.push(add_space_all);
+    context.subscriptions.push(format);
 	context.subscriptions.push(new Watcher());
 }
 exports.activate = activate;
@@ -146,7 +146,7 @@ class Watcher {
     }
     constructor() {
         this.getConfig();
-        if (this._config.get('auto_space_on_save', false)) {
+        if (this._config.get('auto_format_on_save', false)) {
             let subscriptions = [];
             this._disposable = vscode.Disposable.from(...subscriptions);
             vscode.workspace.onWillSaveTextDocument(this._onWillSaveDoc, this, subscriptions);

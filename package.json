@@ -2,7 +2,7 @@
 	"name": "Pangu-Markdown",
 	"displayName": "Pangu-Markdown",
 	"description": "Pangu format for markdown",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"publisher": "xlthu",
 	"engines": {
 		"vscode": "^1.11.0"
@@ -21,14 +21,14 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "pangu.add_space_all",
+				"command": "pangu.format",
 				"title": "Pangu Format"
 			}
 		],
 		"menus": {
 			"editor/context": [{
 				"when": "resourceLangId == markdown",
-				"command": "pangu.add_space_all",
+				"command": "pangu.format",
 				"group": "1_modification"
 			}]
 		},
@@ -36,10 +36,10 @@
 			"type": "object",
 			"title": "Pangu Configuration",
 			"properties": {
-				"pangu.auto_space_on_save": {
+				"pangu.auto_format_on_save": {
 					"type": "boolean",
 					"default": false,
-					"description": "Auto add whitespace for the whole document on save"
+					"description": "Auto apply Pangu format on save"
 				}
 			}
 		}

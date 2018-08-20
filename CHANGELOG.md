@@ -1,5 +1,9 @@
 # Change Log
 
+v0.0.4 (2018-08-18):
+
+- Change `auto_space_on_save` to `auto_format_on_save` for consistency
+
 v0.0.3 (2018-08-18):
 
 - Fix bug with `(`

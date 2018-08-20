@@ -7,7 +7,7 @@
 3. `, \ . : ; ? !` after Chinese characters to `，、。：；？！`
 4. `()` around Chinese characters to `（）`
 	- `[] <>` remains untouched
-5. Continuous `。`(at least 3) to `......`, e.g. `。。。` to `......`
+5. Continuous `。`(at least 3) to `......`, e.g. `。` to `......`
 6. Truncate more than three continuous `？ ！` to only three ones.
 7. Truncate continuous `。，；：、“”『』〖〗《》` to only one.
 
@@ -19,13 +19,15 @@ Ctrl+Shift+P -> Pangu Format
 
 Or
 
-Right Click -> Pangu Format
+```
+Right Click in editor (when open markdown file) -> Pangu Format
+```
 
 ## Setting
 
-| Name                     | Description                                        |
-|:-------------------------|:---------------------------------------------------|
-| pangu.auto_space_on_save | Auto add whitespace for the whole document on save |
+| Name                      | Description                     |
+|:--------------------------|:--------------------------------|
+| pangu.auto_format_on_save | Auto apply Pangu format on save |
 
 ## Thanks
 
