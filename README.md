@@ -11,6 +11,8 @@
 6. Truncate more than three continuous `？ ！` to only three ones.
 7. Truncate continuous `。，；：、“”『』〖〗《》` to only one.
 
+Note that all functions are based on Regex, it cannot do brace match, thus it lacks the ability to handle very complex cases, but it's enough for normal use. Maybe improve in the future.
+
 ## Usage
 
 ```

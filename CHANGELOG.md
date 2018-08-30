@@ -1,5 +1,11 @@
 # Change Log
 
+v0.0.5 (2018-08-30):
+
+- Fix `` `Chinese` ``
+	- Originally, it will become `` ` Chinese ` ``
+	- Now, it remains unchanged
+
 v0.0.4 (2018-08-20):
 
 - Change `auto_space_on_save` to `auto_format_on_save` for consistency
