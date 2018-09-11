@@ -3,10 +3,10 @@
 ## Function
 
 1. Add whitespace between Chinese and English
-2. Add whitespace between Chinese and ``[ ] ` ``
+2. Add whitespace between Chinese and `[ ]`
 3. `, \ . : ; ? !` after Chinese characters to `，、。：；？！`
 4. `()` around Chinese characters to `（）`
-	- `[] <>` remains untouched
+	- ``[] <> ` `` remains untouched
 5. Continuous `。`(at least 3) to `......`, e.g. `。` to `......`
 6. Truncate more than three continuous `？ ！` to only three ones.
 7. Truncate continuous `。，；：、“”『』〖〗《》` to only one.

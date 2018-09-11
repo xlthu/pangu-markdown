@@ -1,5 +1,10 @@
 # Change Log
 
+v0.0.6 (2018-09-11):
+
+- Fix bug introduced in v0.0.5
+	- `` ` `` remains untouched at all
+
 v0.0.5 (2018-08-30):
 
 - Fix `` `Chinese` ``
