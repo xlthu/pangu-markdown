@@ -1,4 +1,7 @@
 # Change Log
+v0.0.7 (2022-7-19):
+
+- Add space between the formula and Chinese in `Latex`
 
 v0.0.6 (2018-09-11):
 

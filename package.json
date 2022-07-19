@@ -2,7 +2,7 @@
 	"name": "Pangu-Markdown",
 	"displayName": "Pangu-Markdown",
 	"description": "Pangu format for markdown",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"publisher": "xlthu",
 	"engines": {
 		"vscode": "^1.11.0"
@@ -26,11 +26,13 @@
 			}
 		],
 		"menus": {
-			"editor/context": [{
-				"when": "resourceLangId == markdown",
-				"command": "pangu.format",
-				"group": "1_modification"
-			}]
+			"editor/context": [
+				{
+					"when": "resourceLangId == markdown",
+					"command": "pangu.format",
+					"group": "1_modification"
+				}
+			]
 		},
 		"configuration": {
 			"type": "object",
@@ -49,10 +51,13 @@
 		"test": "node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"typescript": "^2.0.3",
-		"vscode": "^1.0.0",
-		"mocha": "^2.3.3",
+		"@types/mocha": "^2.2.32",
 		"@types/node": "^6.0.40",
-		"@types/mocha": "^2.2.32"
+		"mocha": "^2.3.3",
+		"typescript": "^2.0.3",
+		"vscode": "^1.0.0"
+	},
+	"dependencies": {
+		"vsce": "^2.9.3"
 	}
 }
