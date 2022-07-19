@@ -32,9 +32,14 @@ class DocumentFormatter {
                 // 每行操作
                 content = content.split("\n").map((line) => {
                     line = this.replacePunctuations(line);
+                    // 中文+英文
                     line = line.replace(/([\u4e00-\u9fa5\u3040-\u30FF][*]*)([a-zA-Z0-9\[\(])/g, '$1 $2');
+                    // 英文+中文
                     line = line.replace(/([a-zA-Z0-9\]!;\,\.\:\?\)])([*]*[\u4e00-\u9fa5\u3040-\u30FF])/g, "$1 $2");
+                    // 链接中文括号替换
                     line = line.replace(/\[([^\]]+)\][（(]([^)]+)[）)]/g, "[$1]($2)");
+                    // Latex
+                    line = line.replace(/(\$)(.+?)(\$)/g, " $1$2$3 ");
                     return line;
                 }).join("\n");
                 editorBuilder.replace(this.current_document_range(doc), content);
