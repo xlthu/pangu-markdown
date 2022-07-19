@@ -39,7 +39,18 @@ class DocumentFormatter {
                     // 链接中文括号替换
                     line = line.replace(/\[([^\]]+)\][（(]([^)]+)[）)]/g, "[$1]($2)");
                     // Latex
-                    line = line.replace(/(\$)(.+?)(\$)/g, " $1$2$3 ");
+                    line = line.replace(/(\$)(.+?)(\$)/g, (match, p1, p2, p3, offset, string) => {
+                        if (offset > 0 && line.charAt(offset-1) != ' ') {
+                            p1 = " " + p1;
+                        }
+                        
+                        let right = offset + match.length;
+                        if (right < line.length && line.charAt(right) != ' ') {
+                            p3 = p3 + " ";
+                        }
+                        
+                        return p1 + p2 + p3;
+                    });
                     return line;
                 }).join("\n");
                 editorBuilder.replace(this.current_document_range(doc), content);
